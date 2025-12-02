@@ -1,0 +1,48 @@
+1. Get data
+2. Build model
+3. Upload and Run classifier on esp32.
+
+// 1. GET DATA (Arduino)
+
+bool startRecording = false;
+
+int startButtonPin = // Start button pin;
+
+int sampleDurationInSecs = 5;
+int sampleDurationInMillis = sampleDurationInSecs * 10;
+int delayTime = 10;
+int numReadings = sampleDurationInMillis / delayTime;
+
+int delayBetweenRecordings = 1000;
+
+void start() {
+    Serial.begin(9600)
+}
+
+void loop() {
+    startRecording = readPin(startButtonPin);
+
+    if(startRecording) {
+        for (int i = 0; i < numReadings; i++) {
+            String sensorData = ReadSensorData();
+            Serial.println(sensorData)
+            delay(delayTime);
+        }
+    }
+
+    delay(delayBetweenRecordings)
+    
+}
+
+Copy data and paste into csv file
+
+
+// 2. Build model (Python)
+
+// Make Taurean do it
+
+
+
+// 3. Upload and Run classifier on esp32.
+
+// Research tflite
